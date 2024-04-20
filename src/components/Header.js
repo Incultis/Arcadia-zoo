@@ -3,7 +3,7 @@ export default function Header() {
 
     return <header>
         <img src={logo} alt="Logo du zoo" className="logo" />
-        <nav>
+        <nav hidden>
             <ul className="nav-style">
                 <li>Accueil</li>
                 <li>Services</li>
