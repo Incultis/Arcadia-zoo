@@ -21,6 +21,11 @@ header {
   margin: 1rem;
 }
 
+.menu-list {
+  display: none;
+}
+
+
 footer {
   background-color: var(--primary-color);
   color: var(--white-text-color);
@@ -34,16 +39,28 @@ footer {
 }
 
 @media (max-width: 760px) {
-  .nav-style {
+  nav {
     position: absolute;
-    flex-direction: column;
-    align-items: center;
     left: 0;
     top: 100px;
-    background-color: var(--primary-color);
     width: 100%;
+  }
+
+  .nav-style {
+
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--primary-color);
+
     padding: 0;
     margin: 0;
   }
+
+  .menu-list {
+    display: block;
+  }
+
+
 
 }
