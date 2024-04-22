@@ -2,6 +2,7 @@ import '../pages/styles/Accueil.css'
 import MainImg from '../../assets/MainPictureAlt.png';
 import broceliande from '../../assets/broceliande.jpg';
 import { CardAnimals, CardHabitats, CardReview, CardServices } from '../Card';
+import ButtonLink from '../ButtonLink';
 
 export default function Accueil() {
 
@@ -16,7 +17,7 @@ export default function Accueil() {
                     <p>Fondé en 1960 et niché près de la mystique forêt de Brocéliande en Bretagne, Arcadia est bien plus qu'un simple zoo.</p>
                 </div>
             </div>
-            <section>
+            <section className='alt-background'>
                 <div className='container-title-text'>
                     <h2>Expériences immersives :</h2>
                     <p>Participez à nos visites guidées interactives et assistez à des présentations d'animaux en direct pour une expérience éducative passionnante.</p>
@@ -24,6 +25,7 @@ export default function Accueil() {
                 <div className='card-container'>
                     <CardServices />
                 </div>
+                <ButtonLink>Découvrir nos services</ButtonLink>
             </section>
             <section>
                 <div className='container-title-text'>
@@ -33,8 +35,9 @@ export default function Accueil() {
                 <div className='card-container'>
                     <CardHabitats />
                 </div>
+                <ButtonLink>Découvrir nos Habitats</ButtonLink>
             </section>
-            <section>
+            <section className='alt-background'>
                 <div className='container-title-text'>
                     <h2>Rencontrez nos résidents :</h2>
                     <p>Notre zoo abrite une grande variété d'animaux, des plus petits aux plus grands, tous soigneusement sélectionnés pour leur conservation et leur éducation.</p>
@@ -42,6 +45,7 @@ export default function Accueil() {
                 <div className='card-container'>
                     <CardAnimals />
                 </div>
+                <ButtonLink>Découvrir les résidents</ButtonLink>
             </section>
             <section>
                 <div className='container-title-text'>
@@ -50,6 +54,7 @@ export default function Accueil() {
                 <div className='card-container'>
                     <CardReview />
                 </div>
+                <ButtonLink>Parcourir les avis</ButtonLink>
             </section>
         </main>
     </>

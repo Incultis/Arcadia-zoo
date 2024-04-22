@@ -33,7 +33,7 @@ export function CardServices() {
     const listServices = arrayServices.map(service => {
         return <div key={service.title} className='card'>
             <img src={service.img} alt="" className="card-img" />
-            <span>{service.title}</span>
+            <span className='span-title-absolute'>{service.title}</span>
         </div>
     })
 
@@ -58,7 +58,7 @@ export function CardHabitats() {
     const listServices = arrayServices.map(service => {
         return <div key={service.title} className='card'>
             <img src={service.img} alt="" className="card-img" />
-            <span>{service.title}</span>
+            <span className='span-title-bottom'>{service.title}</span>
         </div>
     })
 
@@ -87,7 +87,7 @@ export function CardAnimals() {
     const listServices = arrayServices.map(service => {
         return <div key={service.title} className='card'>
             <img src={service.img} alt="" className=" profile-img" />
-            <span>{service.title}</span>
+            <span className='span-title-absolute'>{service.title}</span>
         </div>
     })
 
