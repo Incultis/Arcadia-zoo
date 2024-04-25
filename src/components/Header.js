@@ -2,11 +2,24 @@ import logo from "../assets/logoalt.png";
 import menu from '../assets/list.svg';
 import cross from '../assets/close.svg';
 import { useScreenWidth } from "../hooks/useScreenWidth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Nav() {
     //State pour switch l'icone du menu 
     const [image, setImage] = useState(menu);
+    //Variable de la location courante
+    const location = useLocation();
+
+
+    //effect qui réinitialise le menu dès que la location change en format écran moyen
+    useEffect(() => {
+        if (widthScreen <= 760) {
+            document.querySelector("nav").style.display = "none";
+            setImage(menu);
+        }
+
+    }, [location])
     // hook personnalisé pour retourner la largeur de l'écran
     const { widthScreen } = useScreenWidth();
     //event de click sur l'icone menu/cross
@@ -24,11 +37,11 @@ function Nav() {
             <img src={image} alt="icone de menu" onClick={handleClick} className="menu-list" />
             <nav style={{ display: "none" }}>
                 <ul className="nav-style">
-                    <li>Accueil</li>
-                    <li>Services</li>
-                    <li>Habitats</li>
-                    <li>Contact</li>
-                    <li>Connexion Pro</li>
+                    <li><NavLink to="/">Accueil</NavLink></li>
+                    <li><NavLink to="/services">Services</NavLink></li>
+                    <li><NavLink to="/habitats">Habitats</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+                    <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
                 </ul>
             </nav>
         </>
@@ -36,11 +49,11 @@ function Nav() {
         return <>
             <nav >
                 <ul className="nav-style">
-                    <li>Accueil</li>
-                    <li>Services</li>
-                    <li>Habitats</li>
-                    <li>Contact</li>
-                    <li>Connexion Pro</li>
+                    <li><NavLink to="/">Accueil</NavLink></li>
+                    <li><NavLink to="/services">Services</NavLink></li>
+                    <li><NavLink to="/habitats">Habitats</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+                    <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
                 </ul>
             </nav>
         </>
