@@ -10,18 +10,17 @@ function Nav() {
     const [image, setImage] = useState(menu);
     //Variable de la location courante
     const location = useLocation();
-
+    // hook personnalisé pour retourner la largeur de l'écran
+    const { isMediumScreen } = useScreenWidth(); // test du widthScreen à supp
 
     //effect qui réinitialise le menu dès que la location change en format écran moyen
     useEffect(() => {
-        if (widthScreen <= 760) {
+        if (isMediumScreen) {
             document.querySelector("nav").style.display = "none";
             setImage(menu);
         }
+    }, [location, isMediumScreen]);
 
-    }, [location])
-    // hook personnalisé pour retourner la largeur de l'écran
-    const { widthScreen } = useScreenWidth();
     //event de click sur l'icone menu/cross
     const handleClick = (e) => {
         setImage(image === menu ? cross : menu);
@@ -30,44 +29,24 @@ function Nav() {
             e.target.nextSibling.style.display = 'none';
 
     }
-
-    // A faire/revoir: composant propre à la liste ? avec condition d'affichage directement dans le header.
-    if (widthScreen <= 760) {
-        return <>
-            <img src={image} alt="icone de menu" onClick={handleClick} className="menu-list" />
-            <nav style={{ display: "none" }}>
-                <ul className="nav-style">
-                    <li><NavLink to="/">Accueil</NavLink></li>
-                    <li><NavLink to="/services">Services</NavLink></li>
-                    <li><NavLink to="/habitats">Habitats</NavLink></li>
-                    <li><NavLink to="/contact">Contact</NavLink></li>
-                    <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
-                </ul>
-            </nav>
-        </>
-    } else {
-        return <>
-            <nav >
-                <ul className="nav-style">
-                    <li><NavLink to="/">Accueil</NavLink></li>
-                    <li><NavLink to="/services">Services</NavLink></li>
-                    <li><NavLink to="/habitats">Habitats</NavLink></li>
-                    <li><NavLink to="/contact">Contact</NavLink></li>
-                    <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
-                </ul>
-            </nav>
-        </>
-    }
+    return <>
+        {isMediumScreen && <img src={image} alt="icone de menu" onClick={handleClick} className="menu-list" />}
+        <nav style={isMediumScreen ? { display: "none" } : { display: "block" }}>
+            <ul className="nav-style">
+                <li><NavLink to="/">Accueil</NavLink></li>
+                <li><NavLink to="/services">Services</NavLink></li>
+                <li><NavLink to="/habitats">Habitats</NavLink></li>
+                <li><NavLink to="/contact">Contact</NavLink></li>
+                <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
+            </ul>
+        </nav>
+    </>
 }
 
 export default function Header() {
 
-
-
-
     return <header>
-        <img src={logo} alt="Logo du zoo" className="logo" />
+        <NavLink to="/"><img src={logo} alt="Logo du zoo" className="logo" /></NavLink>
         <Nav />
-
     </header>
 }

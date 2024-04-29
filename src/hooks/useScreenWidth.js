@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-// Retourne en continu la largeur de l'écran
+// Retourne isMediumScreen {boolean}
+//          widthScreen{number} variable de test à supp
 export function useScreenWidth() {
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
@@ -12,6 +13,6 @@ export function useScreenWidth() {
             window.removeEventListener('resize', handleResize);
         }
     }, [])
-
-    return { widthScreen };
+    const isMediumScreen = widthScreen <= 760;
+    return { isMediumScreen, widthScreen };
 }
