@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CardServices } from "../Card";
-import "./styles/Services.css" // problème style ouverture d'un ticket
+import styles from './styles/Page.module.css'
+
 
 export default function Services() {
     const testFocus = useRef(null);
@@ -26,18 +27,20 @@ export default function Services() {
 
     }
     return <>
-        <section className='alt-background'>
-            <div className='container-title-text'>
-                <h2>Rejoignez-nous pour une aventure inoubliable !</h2>
-                <p>Que vous soyez passionné par les animaux, la nature ou simplement à la recherche d'une escapade enrichissante, le Zoo d'Arcadia vous promet une expérience unique à chaque visite. Reconnectez-vous avec la beauté de notre monde naturel et laissez-vous emporter par la magie de la faune sauvage.</p>
-            </div>
-            <div className='card-container'>
-                <CardServices click={handle} description={true} />
-            </div>
-            {visible && <div id={data.title} ref={testFocus} tabIndex={0}>
-                <h3>{data.title}</h3>
-                <p>{data.description}</p>
-            </div>}
-        </section>
+        <main>
+            <section className={styles.altBackground}>
+                <div className={styles.containerTitleText}>
+                    <h2>Rejoignez-nous pour une aventure inoubliable !</h2>
+                    <p>Que vous soyez passionné par les animaux, la nature ou simplement à la recherche d'une escapade enrichissante, le Zoo d'Arcadia vous promet une expérience unique à chaque visite. Reconnectez-vous avec la beauté de notre monde naturel et laissez-vous emporter par la magie de la faune sauvage.</p>
+                </div>
+                <div className={styles.cardContainer}>
+                    <CardServices click={handle} interactive />
+                </div>
+                {visible && <div id={data.title} ref={testFocus} tabIndex={0}>
+                    <h3>{data.title}</h3>
+                    <p>{data.description}</p>
+                </div>}
+            </section>
+        </main>
     </>
 }

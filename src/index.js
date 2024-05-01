@@ -8,12 +8,17 @@ import Services from './components/pages/Services';
 import Connexion from './components/pages/Connexion';
 import Contact from './components/pages/Contact';
 import Habitats from './components/pages/Habitats';
+import Accueil from './components/pages/Accueil';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "",
+        element: <Accueil />
+      },
       {
         path: "services",
         element: <Services />

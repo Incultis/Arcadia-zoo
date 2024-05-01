@@ -7,7 +7,7 @@ section {
     text-align: center;
 }
 
-.alt-background {
+.altBackground {
     background-color: var(--background-color);
     box-shadow: inset 0rem 0.5rem 20px #00000033;
 
@@ -19,12 +19,12 @@ h2 {
     color: var(--brown-color);
 }
 
-.img-accueil {
+.imgAccueil {
     width: 100%;
     object-fit: cover;
 }
 
-.container-head {
+.containerHead {
     display: flex;
     text-align: center;
     align-items: center;
@@ -33,7 +33,7 @@ h2 {
 
 }
 
-.resize-img {
+.resizeImg {
     max-width: 50%;
     margin: 0.5rem;
     border: 3px solid var(--brown-color);
@@ -41,7 +41,7 @@ h2 {
 
 }
 
-.container-title-text {
+.containerTitleText {
     padding: 1rem;
     color: black;
     text-align: center;
@@ -54,7 +54,7 @@ h2 {
     position: relative;
 }
 
-.card-img {
+.cardImg {
     width: 320px;
     height: 220px;
     max-width: 35vh;
@@ -62,16 +62,21 @@ h2 {
     margin: 0.5rem 0.5rem 0 0.5rem;
     border: 3px solid var(--brown-color);
     border-radius: 3rem;
-
 }
 
-.card-container {
+.cardHighlight:hover {
+    box-shadow: 0rem 0.5rem 20px #727070;
+    position: relative;
+    bottom: 5px;
+}
+
+.cardContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.profile-img {
+.profileImg {
     width: 250px;
     height: 250px;
     border: 5px solid var(--brown-color);
@@ -80,7 +85,7 @@ h2 {
     object-fit: cover;
 }
 
-.card-review {
+.cardReview {
     text-align: center;
     background-color: var(--background-color);
     border: 2px solid var(--brown-color);
@@ -90,16 +95,16 @@ h2 {
     box-shadow: 0rem 0.5rem 9px #00000033;
 }
 
-.card-review h4 {
+.cardReview h4 {
     margin: 0;
 
 }
 
-.card-review p {
+.cardReview p {
     padding-top: 1rem;
 }
 
-.span-title-absolute {
+.spanTitleAbsolute {
     position: absolute;
     bottom: 8%;
     background-color: #00000093;
@@ -109,7 +114,7 @@ h2 {
     border-radius: 2rem;
 }
 
-.span-title-bottom {
+.spanTitleBottom {
     background-color: var(--yellow-color);
     border: 2px solid var(--primary-color);
     border-top: none;
@@ -119,7 +124,7 @@ h2 {
     box-shadow: 0rem 0.5rem 9px #00000033;
 }
 
-.button-link {
+.buttonLink {
     border: 2px solid var(--primary-color);
     color: var(--brown-color);
     background-color: var(--yellow-color);
@@ -132,12 +137,12 @@ h2 {
 
 
 @media (max-width: 760px) {
-    .container-head {
+    .containerHead {
         flex-direction: column-reverse;
 
     }
 
-    .resize-img {
+    .resizeImg {
         max-width: 90%;
     }
 

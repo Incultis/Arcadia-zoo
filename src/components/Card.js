@@ -9,9 +9,10 @@ import elephant from '../assets/animaux/elephant.jpg';
 import iguane from '../assets/animaux/iguane.jpg';
 import lemurien from '../assets/animaux/lemurien.jpg';
 import sealion from '../assets/animaux/sealion.jpg';
+import styles from './pages/styles/Page.module.css'; // fichier de styles
 
 // param {fonction} click sur une card
-export function CardServices({ click, description }) {
+export function CardServices({ click, interactive }) {
     const arrayServices = [{
         img: visite,
         title: "Visite guidée",
@@ -36,10 +37,10 @@ export function CardServices({ click, description }) {
 
 
     const listServices = arrayServices.map(service => {
-        return <div key={service.title} className='card' onClick={click} >
-            <img src={service.img} alt="" className="card-img" />
-            <span className='span-title-absolute'>{service.title}</span>
-            {description && <p style={{ display: "none" }} >{service.description}</p>}
+        return <div key={service.title} className={styles.card} onClick={click} >
+            <img src={service.img} alt="" className={`${styles.cardImg} ${interactive && styles.cardHighlight}`} />
+            <span className={styles.spanTitleAbsolute}>{service.title}</span>
+            {interactive && <p style={{ display: "none" }} >{service.description}</p>}
         </div>
     })
 
@@ -62,9 +63,9 @@ export function CardHabitats() {
     ];
 
     const listServices = arrayServices.map(service => {
-        return <div key={service.title} className='card'>
-            <img src={service.img} alt="" className="card-img" />
-            <span className='span-title-bottom'>{service.title}</span>
+        return <div key={service.title} className={styles.card}>
+            <img src={service.img} alt="" className={styles.cardImg} />
+            <span className={styles.spanTitleBottom}>{service.title}</span>
         </div>
     })
 
@@ -91,9 +92,9 @@ export function CardAnimals() {
     ];
 
     const listServices = arrayServices.map(service => {
-        return <div key={service.title} className='card'>
-            <img src={service.img} alt="" className=" profile-img" />
-            <span className='span-title-absolute'>{service.title}</span>
+        return <div key={service.title} className={styles.card}>
+            <img src={service.img} alt="" className={styles.profileImg} />
+            <span className={styles.spanTitleAbsolute}>{service.title}</span>
         </div>
     })
 
@@ -120,7 +121,7 @@ export function CardReview() {
     ];
 
     const listServices = arrayServices.map(service => {
-        return <div key={service.name} className='card card-review'>
+        return <div key={service.name} className={`${styles.card}  ${styles.cardReview}`}>
             <h4>{service.name} :</h4>
             <p>{service.review}</p>
         </div>
