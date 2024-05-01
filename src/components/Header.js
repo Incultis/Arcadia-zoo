@@ -11,7 +11,7 @@ function Nav() {
     //Variable de la location courante
     const location = useLocation();
     // hook personnalisé pour retourner la largeur de l'écran
-    const { isMediumScreen } = useScreenWidth(); // test du widthScreen à supp
+    const { isMediumScreen } = useScreenWidth();
 
     //effect qui réinitialise le menu dès que la location change en format écran moyen
     useEffect(() => {

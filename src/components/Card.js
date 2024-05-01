@@ -10,30 +10,36 @@ import iguane from '../assets/animaux/iguane.jpg';
 import lemurien from '../assets/animaux/lemurien.jpg';
 import sealion from '../assets/animaux/sealion.jpg';
 
-
-export function CardServices() {
+// param {fonction} click sur une card
+export function CardServices({ click, description }) {
     const arrayServices = [{
         img: visite,
-        title: "Visite guidée"
+        title: "Visite guidée",
+        description: "Plongez au cœur de la nature sauvage avec notre visite guidée exclusive au Zoo d'Arcadia, où chaque pas révèle une nouvelle histoire sur la biodiversité fascinante de notre planète."
     },
     {
         img: train,
-        title: "Tour en train"
+        title: "Tour en train",
+        description: "Embarquez pour un voyage panoramique à travers les merveilles de la faune mondiale lors de notre tour en train au Zoo d'Arcadia"
     },
     {
         img: spectacle,
-        title: "Spectacle"
+        title: "Spectacle",
+        description: "Plongez dans un monde de magie aquatique avec notre spectacle captivant au Zoo d'Arcadia."
     },
     {
         img: restauration,
-        title: "Restauration"
+        title: "Restauration",
+        description: "Au Zoo d'Arcadia, votre aventure ne s'arrête pas aux merveilles de la faune. Détendez-vous et régalez-vous avec notre offre de restauration variée, offrant des options délicieuses pour tous les goûts."
     }
     ];
 
+
     const listServices = arrayServices.map(service => {
-        return <div key={service.title} className='card'>
+        return <div key={service.title} className='card' onClick={click} >
             <img src={service.img} alt="" className="card-img" />
             <span className='span-title-absolute'>{service.title}</span>
+            {description && <p style={{ display: "none" }} >{service.description}</p>}
         </div>
     })
 
