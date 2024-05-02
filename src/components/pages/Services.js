@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { CardServices } from "../Card";
 import styles from './styles/Page.module.css'
+import Section from '../shared/Section'
+import HeadContent from '../shared/HeadContent'
 
 
 export default function Services() {
@@ -28,11 +30,11 @@ export default function Services() {
     }
     return <>
         <main>
-            <section className={styles.altBackground}>
-                <div className={styles.containerTitleText}>
+            <Section background>
+                <HeadContent>
                     <h2>Rejoignez-nous pour une aventure inoubliable !</h2>
                     <p>Que vous soyez passionné par les animaux, la nature ou simplement à la recherche d'une escapade enrichissante, le Zoo d'Arcadia vous promet une expérience unique à chaque visite. Reconnectez-vous avec la beauté de notre monde naturel et laissez-vous emporter par la magie de la faune sauvage.</p>
-                </div>
+                </HeadContent>
                 <div className={styles.cardContainer}>
                     <CardServices click={handle} interactive />
                 </div>
@@ -40,7 +42,7 @@ export default function Services() {
                     <h3>{data.title}</h3>
                     <p>{data.description}</p>
                 </div>}
-            </section>
+            </Section>
         </main>
     </>
 }
