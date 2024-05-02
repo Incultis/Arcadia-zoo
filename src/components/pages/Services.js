@@ -9,6 +9,7 @@ export default function Services() {
     const testFocus = useRef(null);
     const [visible, setVisible] = useState(false); //cache la div de description
     const [data, setData] = useState({
+        img: "",
         title: "",
         description: ""
 
@@ -23,10 +24,11 @@ export default function Services() {
     function handle(e) { // fonction event de type click, les données sont récupéré au click
         setVisible(true);
         setData({
+            img: e.currentTarget.firstChild.src,
             title: e.currentTarget.innerText, //récupère le titre
             description: e.currentTarget.lastChild.innerText //récupère la description
         });
-
+        console.log(e.currentTarget.firstChild.src);
     }
     return <>
         <main>
@@ -38,9 +40,12 @@ export default function Services() {
                 <div className={styles.cardContainer}>
                     <CardServices click={handle} interactive />
                 </div>
-                {visible && <div id={data.title} ref={testFocus} tabIndex={0}>
-                    <h3>{data.title}</h3>
-                    <p>{data.description}</p>
+                {visible && <div className={styles.serviceFocus} id={data.title} ref={testFocus} tabIndex={0}>
+                    <img src={data.img} />
+                    <HeadContent>
+                        <h3>{data.title}</h3>
+                        <p>{data.description}</p>
+                    </HeadContent>
                 </div>}
             </Section>
         </main>

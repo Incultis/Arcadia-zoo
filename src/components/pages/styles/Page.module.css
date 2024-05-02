@@ -3,7 +3,6 @@ main {
 }
 
 section {
-    padding: 1rem 1rem;
     text-align: center;
 }
 
@@ -75,6 +74,7 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 1rem;
 }
 
 .profileImg {
@@ -135,6 +135,17 @@ h2 {
     margin: 1rem;
 }
 
+.serviceFocus {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    margin-top: 1rem;
+
+    img {
+        width: 50%;
+        height: 50%;
+    }
+}
 
 
 @media (max-width: 760px) {
@@ -147,5 +158,20 @@ h2 {
         max-width: 90%;
     }
 
+    .containerTitleText {
+        padding: 0.5rem;
+        margin: 0 1rem;
+    }
+
+    .serviceFocus {
+        display: block;
+        background-color: var(--secondary-color);
+        margin-top: 1rem;
+
+        img {
+            width: 100%;
+            height: 50%;
+        }
+    }
 
 }
