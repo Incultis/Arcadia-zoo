@@ -41,7 +41,7 @@ export default function Services() {
                     <CardServices click={handle} interactive />
                 </div>
                 {visible && <div className={styles.serviceFocus} id={data.title} ref={testFocus} tabIndex={0}>
-                    <img src={data.img} />
+                    <img src={data.img} alt="" />
                     <HeadContent>
                         <h3>{data.title}</h3>
                         <p>{data.description}</p>
