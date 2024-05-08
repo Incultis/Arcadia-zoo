@@ -1,9 +1,12 @@
 main {
-    background-color: var(--secondary-color);
+
+    background-color: var(--background-color);
 }
 
 section {
     text-align: center;
+    background-color: var(--secondary-color);
+
 }
 
 .altBackground {

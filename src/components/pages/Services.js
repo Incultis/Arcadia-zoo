@@ -28,7 +28,7 @@ export default function Services() {
             title: e.currentTarget.innerText, //récupère le titre
             description: e.currentTarget.lastChild.innerText //récupère la description
         });
-        console.log(e.currentTarget.firstChild.src);
+
     }
     return <>
         <main>
@@ -38,7 +38,7 @@ export default function Services() {
                     <p>Que vous soyez passionné par les animaux, la nature ou simplement à la recherche d'une escapade enrichissante, le Zoo d'Arcadia vous promet une expérience unique à chaque visite. Reconnectez-vous avec la beauté de notre monde naturel et laissez-vous emporter par la magie de la faune sauvage.</p>
                 </HeadContent>
                 <div className={styles.cardContainer}>
-                    <CardServices click={handle} interactive />
+                    <CardServices eventClick={handle} interactive />
                 </div>
                 {visible && <div className={styles.serviceFocus} id={data.title} ref={testFocus} tabIndex={0}>
                     <img src={data.img} alt="" />

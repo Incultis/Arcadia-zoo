@@ -5,6 +5,7 @@ import { CardAnimals, CardHabitats, CardReview, CardServices } from '../Card';
 import ButtonLink from '../ButtonLink';
 import Section from '../shared/Section';
 import HeadContent from '../shared/HeadContent';
+import { dataAnimals } from '../../mockData/dataAnimals';
 
 export default function Accueil() {
 
@@ -45,7 +46,7 @@ export default function Accueil() {
                     <p>Notre zoo abrite une grande variété d'animaux, des plus petits aux plus grands, tous soigneusement sélectionnés pour leur conservation et leur éducation.</p>
                 </HeadContent>
                 <div className={styles.cardContainer}>
-                    <CardAnimals />
+                    <CardAnimals arrayAnimals={dataAnimals} />
                 </div>
                 <ButtonLink>Découvrir les résidents</ButtonLink>
             </Section>

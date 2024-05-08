@@ -2,17 +2,12 @@ import visite from '../assets/services/visite.jpg';
 import train from '../assets/services/train.jpg';
 import spectacle from '../assets/services/spectacle.jpg';
 import restauration from '../assets/services/restauration.jpg';
-import savane from '../assets/habitat/savane.jpg';
-import jungle from '../assets/habitat/jungle.jpg';
-import aquatique from '../assets/habitat/aquatique.jpg';
-import elephant from '../assets/animaux/elephant.jpg';
-import iguane from '../assets/animaux/iguane.jpg';
-import lemurien from '../assets/animaux/lemurien.jpg';
-import sealion from '../assets/animaux/sealion.jpg';
 import styles from './pages/styles/Page.module.css'; // fichier de styles
+import { dataHabitats } from '../mockData/dataHabitats';
+
 
 // param {fonction} click sur une card
-export function CardServices({ click, interactive }) {
+export function CardServices({ eventClick, interactive }) {
     const arrayServices = [{
         img: visite,
         title: "Visite guidée",
@@ -37,7 +32,7 @@ export function CardServices({ click, interactive }) {
 
 
     const listServices = arrayServices.map(service => {
-        return <div key={service.title} className={styles.card} onClick={click} >
+        return <div key={service.title} className={styles.card} onClick={eventClick} >
             <img src={service.img} alt="" className={`${styles.cardImg} ${interactive && styles.cardHighlight}`} />
             <span className={styles.spanTitleAbsolute}>{service.title}</span>
             {interactive && <p style={{ display: "none" }} >{service.description}</p>}
@@ -47,58 +42,29 @@ export function CardServices({ click, interactive }) {
     return <>{listServices}</>
 }
 
-export function CardHabitats() {
-    const arrayServices = [{
-        img: savane,
-        title: "Savane"
-    },
-    {
-        img: jungle,
-        title: "Jungle"
-    },
-    {
-        img: aquatique,
-        title: "Aquatique"
-    }
-    ];
+export function CardHabitats({ eventClick }) {
 
-    const listServices = arrayServices.map(service => {
-        return <div key={service.title} className={styles.card}>
-            <img src={service.img} alt="" className={styles.cardImg} />
-            <span className={styles.spanTitleBottom}>{service.title}</span>
+    const listHabitats = dataHabitats.map(habitat => {
+        return <div key={habitat.id} className={styles.card} onClick={eventClick}>
+            <img src={habitat.img[0]} alt="" className={styles.cardImg} />
+            <span className={styles.spanTitleBottom}>{habitat.title}</span>
         </div>
     })
 
-    return <>{listServices}</>
+    return <>{listHabitats}</>
 }
+// param: {array} tableau d'objet
+export function CardAnimals({ arrayAnimals }) {
 
-export function CardAnimals() {
-    const arrayServices = [{
-        img: elephant,
-        title: "Elephant"
-    },
-    {
-        img: iguane,
-        title: "Iguane"
-    },
-    {
-        img: lemurien,
-        title: "Lémurien"
-    },
-    {
-        img: sealion,
-        title: "Lion de mer"
-    }
-    ];
 
-    const listServices = arrayServices.map(service => {
-        return <div key={service.title} className={styles.card}>
-            <img src={service.img} alt="" className={styles.profileImg} />
-            <span className={styles.spanTitleAbsolute}>{service.title}</span>
+    const listAnimals = arrayAnimals.map(animal => {
+        return <div key={animal.id} className={styles.card}>
+            <img src={animal.img} alt="" className={styles.profileImg} />
+            <span className={styles.spanTitleAbsolute}>{animal.race}</span>
         </div>
     })
 
-    return <>{listServices}</>
+    return <>{listAnimals}</>
 }
 
 export function CardReview() {
