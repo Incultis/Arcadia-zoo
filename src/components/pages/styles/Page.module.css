@@ -71,6 +71,7 @@ h2 {
     box-shadow: 0rem 0.5rem 20px #727070;
     position: relative;
     bottom: 5px;
+    cursor: pointer;
 }
 
 .cardContainer {

@@ -4,10 +4,10 @@ import spectacle from '../assets/services/spectacle.jpg';
 import restauration from '../assets/services/restauration.jpg';
 import styles from './pages/styles/Page.module.css'; // fichier de styles
 import { dataHabitats } from '../mockData/dataHabitats';
+//Ficher regroupant les composant Card.
 
-
-// param {fonction} click sur une card
-export function CardServices({ eventClick, interactive }) {
+// param {fonction event} click sur une card
+export function CardServices({ eventClick }) {
     const arrayServices = [{
         img: visite,
         title: "Visite guidée",
@@ -33,20 +33,20 @@ export function CardServices({ eventClick, interactive }) {
 
     const listServices = arrayServices.map(service => {
         return <div key={service.title} className={styles.card} onClick={eventClick} >
-            <img src={service.img} alt="" className={`${styles.cardImg} ${interactive && styles.cardHighlight}`} />
+            <img src={service.img} alt="" className={`${styles.cardImg} ${eventClick && styles.cardHighlight}`} />
             <span className={styles.spanTitleAbsolute}>{service.title}</span>
-            {interactive && <p style={{ display: "none" }} >{service.description}</p>}
+            {eventClick && <p style={{ display: "none" }} >{service.description}</p>}
         </div>
     })
 
     return <>{listServices}</>
 }
-
+// param: {function event} si présent détecte le click sur la Card.
 export function CardHabitats({ eventClick }) {
 
     const listHabitats = dataHabitats.map(habitat => {
         return <div key={habitat.id} className={styles.card} onClick={eventClick}>
-            <img src={habitat.img[0]} alt="" className={styles.cardImg} />
+            <img src={habitat.img[0]} alt="" className={`${styles.cardImg} ${eventClick && styles.cardHighlight}`} />
             <span className={styles.spanTitleBottom}>{habitat.title}</span>
         </div>
     })

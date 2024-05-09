@@ -5,10 +5,11 @@ import { CardAnimals, CardHabitats } from "../Card";
 import { getHabitatByName } from "../../mockData/dataHabitats";
 import { useState } from "react";
 import Carousel from "../Carousel";
-// A faire: gérer l'affichage des images
+import { useFocusScreen } from "../../hooks/useFocusScreen";
+//Page Habitat: click sur une "card" d'un habitat pour afficher les données correspondantes.
 export default function Habitats() {
     const [data, setData] = useState("");
-
+    const divFocus = useFocusScreen(data);
     const handleClick = (e) => {
         setData(getHabitatByName(e.currentTarget.lastChild.innerText));
     }
@@ -28,7 +29,7 @@ export default function Habitats() {
                         <h2>{data.title}</h2>
                         <p>{data.description}</p>
                     </HeadContent>
-                    <div className={styles.card}>
+                    <div className={styles.card} ref={divFocus} tabIndex={0}>
                         <Carousel arrayImg={data.img} />
                     </div>
                 </Section>
