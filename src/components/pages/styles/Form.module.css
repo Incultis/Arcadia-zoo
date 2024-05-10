@@ -1,0 +1,43 @@
+.inputField,
+.textareaField {
+    width: 100%;
+    margin-top: 0.2rem;
+    box-sizing: border-box;
+}
+
+.containerLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 760px) {
+    .inputRow {
+        flex-direction: column;
+    }
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.containerInputs {
+    width: 40%;
+    margin: 1rem;
+}
+
+@media (max-width: 1020px) {
+    .containerInputs {
+        width: 100%;
+    }
+}
