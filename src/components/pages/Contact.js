@@ -3,6 +3,7 @@ import styles from "../pages/styles/Form.module.css"
 import Input from "../shared/Input";
 import Textarea from "../shared/Textarea";
 import { useEffect, useState } from "react";
+import HeadContent from "../shared/HeadContent";
 // Page de formulaire de contact
 export default function Contact() {
     //State {boolean} pour activer/désactiver le bouton de soumission du formulaire.
@@ -13,12 +14,14 @@ export default function Contact() {
         email: "",
         message: ""
     });
-
+    // State {object} Valide ou non une à une les inputs avec une valeur booléenne.
     const [errorsForm, setErrorsForm] = useState({
         object: false,
         email: false,
         message: false
     });
+
+    //Fonction qui permet de controler la validité des inputs en mettant à jour le State "errorsForm"; param ({string}: nom de l'input, {string}: valeur de l'input)
     const isFullAndValid = (dataName, dataValue) => {
         setErrorsForm({ ...errorsForm, [dataName]: (dataValue.trim() && dataName !== "email") })
 
@@ -47,7 +50,10 @@ export default function Contact() {
 
     return <main>
         <Section background>
-            <h2>Nous contacter :</h2>
+            <HeadContent>
+                <h2>Nous contacter :</h2>
+            </HeadContent>
+
             <form className={styles.containerForm} onSubmit={handleSubmit} >
                 <div className={styles.containerInputs}>
                     <div className={styles.inputRow}>

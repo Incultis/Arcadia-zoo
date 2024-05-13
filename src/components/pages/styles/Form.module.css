@@ -3,6 +3,11 @@
     width: 100%;
     margin-top: 0.2rem;
     box-sizing: border-box;
+    outline: none;
+}
+
+.textareaField {
+    height: 100px;
 }
 
 .containerLabelInput,
@@ -15,6 +20,12 @@
 
 .containerLabelInput {
     width: 45%;
+}
+
+@media (max-width: 760px) {
+    .containerLabelInput {
+        width: 100%;
+    }
 }
 
 
@@ -53,8 +64,15 @@
 
 .errorInput {
     border-color: red;
+    box-shadow: 0 0 5px rgba(255, 17, 0, 0.5);
 }
 
 .validInput {
     border-color: green;
+    box-shadow: 0 0 5px rgba(0, 255, 85, 0.5);
+}
+
+.spanError {
+    white-space: nowrap;
+    color: red;
 }

@@ -10,8 +10,9 @@ import styles from "../pages/styles/Form.module.css"
 export default function Input({ label, type, name, onChange, errors }) {
 
     return <label className={styles.containerLabelInput}>
-        {label} : {!errors && <span>Champ obligatoire. {name === "email" && "Email invalide."}</span>}
+        {label} :
         <input type={type} name={name} className={`${styles.inputField} ${!errors ? styles.errorInput : styles.validInput}`} onChange={onChange} />
+        {!errors && <span className={styles.spanError}>Champ obligatoire. {name === "email" && "Email invalide."}</span>}
     </label>
 
 }
