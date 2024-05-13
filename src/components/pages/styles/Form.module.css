@@ -5,17 +5,25 @@
     box-sizing: border-box;
 }
 
-.containerLabel {
+.containerLabelInput,
+.containerLabelTextarea {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
+
+.containerLabelInput {
+    width: 45%;
+}
+
 
 .inputRow {
     display: flex;
     width: 100%;
     justify-content: space-between;
     margin-bottom: 1rem;
+
 }
 
 @media (max-width: 760px) {
@@ -32,12 +40,21 @@
 }
 
 .containerInputs {
-    width: 40%;
-    margin: 1rem;
+    width: 50%;
+    padding: 1rem;
+
 }
 
 @media (max-width: 1020px) {
     .containerInputs {
         width: 100%;
     }
+}
+
+.errorInput {
+    border-color: red;
+}
+
+.validInput {
+    border-color: green;
 }
