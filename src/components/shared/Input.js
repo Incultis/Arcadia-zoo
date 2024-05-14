@@ -7,12 +7,13 @@ import styles from "../pages/styles/Form.module.css"
         -onChange {callBack} fonction d'événement sur l'input
         -errors {boolean} Valide ou non les informations saisie
 */
+// A prévoir d'autre condition de validation (limitation nb caractères, spécial caractères ...)
 export default function Input({ label, type, name, onChange, errors }) {
 
     return <label className={styles.containerLabelInput}>
         {label} :
         <input type={type} name={name} className={`${styles.inputField} ${!errors ? styles.errorInput : styles.validInput}`} onChange={onChange} />
-        {!errors && <span className={styles.spanError}>Champ obligatoire. {name === "email" && "Email invalide."}</span>}
+        {!errors && <span className={styles.spanError}>Champ obligatoire. {type === "email" && "Email invalide."}</span>}
     </label>
 
 }

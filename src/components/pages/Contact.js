@@ -46,6 +46,7 @@ export default function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Données envoyées", formData) // simulation envoie
+        // Mailling
     }
 
     return <main>
