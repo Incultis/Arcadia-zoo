@@ -9,6 +9,8 @@ import Connexion from './components/pages/Connexion';
 import Contact from './components/pages/Contact';
 import Habitats from './components/pages/Habitats';
 import Accueil from './components/pages/Accueil';
+import Dashboard from './components/pages/Dashboard';
+import { loader } from './auth/sigin';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,12 @@ const router = createBrowserRouter([
       },
       {
         path: "connexion",
-        element: <Connexion />
+        element: <Connexion />,
+        loader: loader
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />
       }
     ]
   }

@@ -4,10 +4,13 @@ import cross from '../assets/close.svg';
 import { useScreenWidth } from "../hooks/useScreenWidth";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { disconnect, isLogged } from "../auth/sigin";
 
 function Nav() {
     //State pour switch l'icone du menu 
     const [image, setImage] = useState(menu);
+    // State gère l'affichage conditionnel du menu, contient le rôle {string} ou la valeur null.
+    const [loggedRole, setLoggedRole] = useState(isLogged);
     //Variable de la location courante
     const location = useLocation();
     // hook personnalisé pour retourner la largeur de l'écran
@@ -21,6 +24,11 @@ function Nav() {
         }
     }, [location, isMediumScreen]);
 
+    //fonction de déconnexion
+    const handleClickDisconnect = () => {
+        disconnect();
+        setLoggedRole(isLogged);
+    }
     //event de click sur l'icone menu/cross
     const handleClick = (e) => {
         setImage(image === menu ? cross : menu);
@@ -37,7 +45,8 @@ function Nav() {
                 <li><NavLink to="/services">Services</NavLink></li>
                 <li><NavLink to="/habitats">Habitats</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
-                <li><NavLink to="/connexion">Connexion Pro</NavLink></li>
+                {loggedRole && <li><NavLink to="/dashboard">Tableau de bord</NavLink></li>}
+                {loggedRole ? <li onClick={handleClickDisconnect}><NavLink to="/">Déconnexion</NavLink></li> : <li><NavLink to="/connexion">Connexion Pro</NavLink></li>}
             </ul>
         </nav>
     </>
