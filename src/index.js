@@ -11,6 +11,9 @@ import Habitats from './components/pages/Habitats';
 import Accueil from './components/pages/Accueil';
 import Dashboard from './components/pages/Dashboard';
 import { loader } from './auth/sigin';
+import VetReport from './components/pages/VetReport';
+import Management from './components/pages/Management';
+import Stats from './components/pages/Stats';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +43,21 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <Dashboard />
+        element: <Dashboard />,
+        children: [
+          {
+            path: "rapport",
+            element: <VetReport />
+          },
+          {
+            path: "gestion",
+            element: <Management />
+          },
+          {
+            path: "statistiques",
+            element: <Stats />
+          },
+        ]
       }
     ]
   }

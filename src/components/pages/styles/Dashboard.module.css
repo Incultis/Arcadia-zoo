@@ -1,0 +1,24 @@
+.navigationDashboard {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+@media (max-width: 450px) {
+    .navigationDashboard {
+        flex-direction: column;
+    }
+}
+
+.navigationDashboard li {
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white-text-color);
+    border-radius: 20px;
+}
+
+.navigationDashboard li a {
+    color: var(--white-text-color);
+}
