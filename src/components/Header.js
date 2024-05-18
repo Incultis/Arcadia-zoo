@@ -9,7 +9,7 @@ import { disconnect, isLogged } from "../auth/sigin";
 function Nav() {
     //State pour switch l'icone du menu 
     const [image, setImage] = useState(menu);
-    // State gère l'affichage conditionnel du menu, contient le rôle {string} ou la valeur null.
+    // State gère l'affichage conditionnel du menu, contient le rôle {string} ou null.
     const [loggedRole, setLoggedRole] = useState(isLogged);
     //Variable de la location courante
     const location = useLocation();

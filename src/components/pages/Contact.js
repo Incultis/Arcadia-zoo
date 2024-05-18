@@ -62,9 +62,9 @@ export default function Contact() {
                         <Input label="E-mail" name="email" type="email" onChange={handleInput} errors={errorsForm.email} />
                     </div>
                     <Textarea label="Message" name="message" onChange={handleInput} errors={errorsForm.message} />
-
+                    <button type="submit" disabled={!isValid}>Envoyer</button>
                 </div>
-                <button type="submit" disabled={!isValid}>Envoyer</button>
+
             </form>
         </Section>
     </main>
