@@ -14,6 +14,7 @@ import { loader } from './auth/sigin';
 import VetReport from './components/pages/VetReport';
 import Management from './components/pages/Management';
 import Stats from './components/pages/Stats';
+import ReportAllHabitats from './components/pages/ReportAllHabitats';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,16 @@ const router = createBrowserRouter([
         children: [
           {
             path: "rapport",
-            element: <VetReport />
+            element: <VetReport />,
+            children: [
+              {
+                path: "habitats",
+                element: <ReportAllHabitats />
+              },
+              {
+                path: "animaux"
+              }
+            ]
           },
           {
             path: "gestion",

@@ -21,3 +21,9 @@ export const dataUsers = [
         role: "VETERINARY"
     }
 ]
+
+//param: {number} id de l'utilisateur à extraire. Retourne un objet User.
+export function getUserById(idUser) {
+    return dataUsers.find(user => user.id === idUser);
+}
+
